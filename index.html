@@ -133,12 +133,12 @@
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">3</span></a>
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">4</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">8</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">11</span></a>
 
   </li>
         <li class="menu-item menu-item-about">
@@ -218,14 +218,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">8</span>
+          <span class="site-state-item-count">11</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
   </nav>
@@ -274,7 +274,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.niceczj.online/2020/11/08/%E4%B8%83-refresh/">
+    <link itemprop="mainEntityOfPage" href="http://www.niceczj.online/2020/11/09/springboot/%E4%BA%8C-%E8%87%AA%E5%8A%A8%E8%A3%85%E9%85%8D/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/my.png">
@@ -288,7 +288,368 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/11/08/%E4%B8%83-refresh/" class="post-title-link" itemprop="url">(七) refresh</a>
+            <a href="/2020/11/09/springboot/%E4%BA%8C-%E8%87%AA%E5%8A%A8%E8%A3%85%E9%85%8D/" class="post-title-link" itemprop="url">(二) 自动装配</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-11-09 22:01:35" itemprop="dateCreated datePublished" datetime="2020-11-09T22:01:35+08:00">2020-11-09</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E4%B8%BB%E6%B5%81%E6%A1%86%E6%9E%B6/" itemprop="url" rel="index"><span itemprop="name">主流框架</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E4%B8%BB%E6%B5%81%E6%A1%86%E6%9E%B6/Spring/" itemprop="url" rel="index"><span itemprop="name">Spring</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E4%B8%BB%E6%B5%81%E6%A1%86%E6%9E%B6/Spring/Spring-Boot/" itemprop="url" rel="index"><span itemprop="name">Spring Boot</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/11/09/springboot/%E4%BA%8C-%E8%87%AA%E5%8A%A8%E8%A3%85%E9%85%8D/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/11/09/springboot/%E4%BA%8C-%E8%87%AA%E5%8A%A8%E8%A3%85%E9%85%8D/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>12k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>11 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>Spring Boot 能够快速流行的最主要的原因，就是 Spring Boot 大大的降低了开发成本。<br>而能够快速开发的原理就是<strong>自动装配</strong>。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/11/09/springboot/%E4%BA%8C-%E8%87%AA%E5%8A%A8%E8%A3%85%E9%85%8D/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.niceczj.online/2020/11/09/springboot/%E4%B8%80-Spring-Boot-%E5%90%AF%E5%8A%A8%E5%8E%9F%E7%90%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/my.png">
+      <meta itemprop="name" content="Jay Cai">
+      <meta itemprop="description" content="一个有体系的个人博客">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jay的狗窝">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/11/09/springboot/%E4%B8%80-Spring-Boot-%E5%90%AF%E5%8A%A8%E5%8E%9F%E7%90%86/" class="post-title-link" itemprop="url">(一) Spring Boot 启动原理</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2020-11-09 17:14:05 / 修改时间：17:17:59" itemprop="dateCreated datePublished" datetime="2020-11-09T17:14:05+08:00">2020-11-09</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E4%B8%BB%E6%B5%81%E6%A1%86%E6%9E%B6/" itemprop="url" rel="index"><span itemprop="name">主流框架</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E4%B8%BB%E6%B5%81%E6%A1%86%E6%9E%B6/Spring/" itemprop="url" rel="index"><span itemprop="name">Spring</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E4%B8%BB%E6%B5%81%E6%A1%86%E6%9E%B6/Spring/Spring-Boot/" itemprop="url" rel="index"><span itemprop="name">Spring Boot</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/11/09/springboot/%E4%B8%80-Spring-Boot-%E5%90%AF%E5%8A%A8%E5%8E%9F%E7%90%86/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/11/09/springboot/%E4%B8%80-Spring-Boot-%E5%90%AF%E5%8A%A8%E5%8E%9F%E7%90%86/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>24k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>21 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>本文 Spring Boot 系列第一篇，主要从源码角度分析了 Spring Boot 启动的过程。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/11/09/springboot/%E4%B8%80-Spring-Boot-%E5%90%AF%E5%8A%A8%E5%8E%9F%E7%90%86/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.niceczj.online/2020/11/09/springboot/%E9%9B%B6-Spring-Boot-%E7%B3%BB%E5%88%97%E7%9B%AE%E5%BD%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/my.png">
+      <meta itemprop="name" content="Jay Cai">
+      <meta itemprop="description" content="一个有体系的个人博客">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jay的狗窝">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/11/09/springboot/%E9%9B%B6-Spring-Boot-%E7%B3%BB%E5%88%97%E7%9B%AE%E5%BD%95/" class="post-title-link" itemprop="url">(零) Spring Boot 系列目录</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2020-11-09 17:13:57 / 修改时间：18:11:23" itemprop="dateCreated datePublished" datetime="2020-11-09T17:13:57+08:00">2020-11-09</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E4%B8%BB%E6%B5%81%E6%A1%86%E6%9E%B6/" itemprop="url" rel="index"><span itemprop="name">主流框架</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E4%B8%BB%E6%B5%81%E6%A1%86%E6%9E%B6/Spring/" itemprop="url" rel="index"><span itemprop="name">Spring</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E4%B8%BB%E6%B5%81%E6%A1%86%E6%9E%B6/Spring/Spring-Boot/" itemprop="url" rel="index"><span itemprop="name">Spring Boot</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/11/09/springboot/%E9%9B%B6-Spring-Boot-%E7%B3%BB%E5%88%97%E7%9B%AE%E5%BD%95/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/11/09/springboot/%E9%9B%B6-Spring-Boot-%E7%B3%BB%E5%88%97%E7%9B%AE%E5%BD%95/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>124</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>《Spring Boot系列》是笔者准备结合源码对 Spring Boot 的部分特性和流程的一个总结。</p>
+<blockquote>
+<p>本系列基于最新稳定版本 Spring Boot 2.3.4.RELEASE。</p>
+</blockquote>
+<p>目前计划分为以下几个章节：</p>
+<ol>
+<li><a href="/2020/11/09/springboot/%E4%B8%80-Spring-Boot-%E5%90%AF%E5%8A%A8%E5%8E%9F%E7%90%86/" title="(一) Spring Boot 启动原理">(一) Spring Boot 启动原理</a></li>
+<li><a href="/2020/11/09/springboot/%E4%BA%8C-%E8%87%AA%E5%8A%A8%E8%A3%85%E9%85%8D/" title="(二) 自动装配">(二) 自动装配</a></li>
+<li>TODO</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.niceczj.online/2020/11/08/springframework/%E4%B8%83-refresh/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/my.png">
+      <meta itemprop="name" content="Jay Cai">
+      <meta itemprop="description" content="一个有体系的个人博客">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jay的狗窝">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/11/08/springframework/%E4%B8%83-refresh/" class="post-title-link" itemprop="url">(七) refresh</a>
         </h2>
 
         <div class="post-meta-container">
@@ -301,6 +662,13 @@
 
       <time title="创建时间：2020-11-08 23:26:08" itemprop="dateCreated datePublished" datetime="2020-11-08T23:26:08+08:00">2020-11-08</time>
     </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2020-11-09 17:22:24" itemprop="dateModified" datetime="2020-11-09T17:22:24+08:00">2020-11-09</time>
+      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
@@ -328,8 +696,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2020/11/08/%E4%B8%83-refresh/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/11/08/%E4%B8%83-refresh/" itemprop="commentCount"></span>
+    <a title="valine" href="/2020/11/08/springframework/%E4%B8%83-refresh/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/11/08/springframework/%E4%B8%83-refresh/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -362,7 +730,7 @@
           <p>通过前面几个篇章的铺垫，现在可以更加系统的认识 Spring Framework 的启动方法：<code>refresh</code>。</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2020/11/08/%E4%B8%83-refresh/#more" rel="contents">
+              <a class="btn" href="/2020/11/08/springframework/%E4%B8%83-refresh/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -393,7 +761,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.niceczj.online/2020/11/08/%E5%85%AD-%E5%BE%AA%E7%8E%AF%E4%BE%9D%E8%B5%96/">
+    <link itemprop="mainEntityOfPage" href="http://www.niceczj.online/2020/11/08/springframework/%E5%85%AD-%E5%BE%AA%E7%8E%AF%E4%BE%9D%E8%B5%96/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/my.png">
@@ -407,7 +775,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/11/08/%E5%85%AD-%E5%BE%AA%E7%8E%AF%E4%BE%9D%E8%B5%96/" class="post-title-link" itemprop="url">(六) 循环依赖</a>
+            <a href="/2020/11/08/springframework/%E5%85%AD-%E5%BE%AA%E7%8E%AF%E4%BE%9D%E8%B5%96/" class="post-title-link" itemprop="url">(六) 循环依赖</a>
         </h2>
 
         <div class="post-meta-container">
@@ -420,6 +788,13 @@
 
       <time title="创建时间：2020-11-08 22:36:09" itemprop="dateCreated datePublished" datetime="2020-11-08T22:36:09+08:00">2020-11-08</time>
     </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2020-11-09 17:22:24" itemprop="dateModified" datetime="2020-11-09T17:22:24+08:00">2020-11-09</time>
+      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
@@ -447,8 +822,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2020/11/08/%E5%85%AD-%E5%BE%AA%E7%8E%AF%E4%BE%9D%E8%B5%96/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/11/08/%E5%85%AD-%E5%BE%AA%E7%8E%AF%E4%BE%9D%E8%B5%96/" itemprop="commentCount"></span>
+    <a title="valine" href="/2020/11/08/springframework/%E5%85%AD-%E5%BE%AA%E7%8E%AF%E4%BE%9D%E8%B5%96/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/11/08/springframework/%E5%85%AD-%E5%BE%AA%E7%8E%AF%E4%BE%9D%E8%B5%96/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -478,10 +853,10 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>前面创建 Bean 的过程基本分为三步：实例化、属性填充、执行初始化方法。<br>在填充属性进行依赖注入时，时会遇到一个特殊情况，就是循环依赖。<br>前一章<a href="/2020/11/08/%E4%BA%94-%E4%BE%9D%E8%B5%96%E6%9F%A5%E6%89%BE/" title="(五) 依赖查找">(五) 依赖查找</a>为了突出主线 Bean 的实例化与初始化过程，故意省略了部分步骤。<br>这篇将会分析 Spring Framework 是如何处理部分循环依赖的。</p>
+          <p>前面创建 Bean 的过程基本分为三步：实例化、属性填充、执行初始化方法。<br>在填充属性进行依赖注入时，时会遇到一个特殊情况，就是循环依赖。<br>前一章<a href="/2020/11/08/springframework/%E4%BA%94-%E4%BE%9D%E8%B5%96%E6%9F%A5%E6%89%BE/" title="(五) 依赖查找">(五) 依赖查找</a>为了突出主线 Bean 的实例化与初始化过程，故意省略了部分步骤。<br>这篇将会分析 Spring Framework 是如何处理部分循环依赖的。</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2020/11/08/%E5%85%AD-%E5%BE%AA%E7%8E%AF%E4%BE%9D%E8%B5%96/#more" rel="contents">
+              <a class="btn" href="/2020/11/08/springframework/%E5%85%AD-%E5%BE%AA%E7%8E%AF%E4%BE%9D%E8%B5%96/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -512,7 +887,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.niceczj.online/2020/11/08/%E4%BA%94-%E4%BE%9D%E8%B5%96%E6%9F%A5%E6%89%BE/">
+    <link itemprop="mainEntityOfPage" href="http://www.niceczj.online/2020/11/08/springframework/%E4%BA%94-%E4%BE%9D%E8%B5%96%E6%9F%A5%E6%89%BE/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/my.png">
@@ -526,7 +901,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/11/08/%E4%BA%94-%E4%BE%9D%E8%B5%96%E6%9F%A5%E6%89%BE/" class="post-title-link" itemprop="url">(五) 依赖查找</a>
+            <a href="/2020/11/08/springframework/%E4%BA%94-%E4%BE%9D%E8%B5%96%E6%9F%A5%E6%89%BE/" class="post-title-link" itemprop="url">(五) 依赖查找</a>
         </h2>
 
         <div class="post-meta-container">
@@ -539,6 +914,13 @@
 
       <time title="创建时间：2020-11-08 22:35:55" itemprop="dateCreated datePublished" datetime="2020-11-08T22:35:55+08:00">2020-11-08</time>
     </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2020-11-09 17:22:24" itemprop="dateModified" datetime="2020-11-09T17:22:24+08:00">2020-11-09</time>
+      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
@@ -566,8 +948,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2020/11/08/%E4%BA%94-%E4%BE%9D%E8%B5%96%E6%9F%A5%E6%89%BE/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/11/08/%E4%BA%94-%E4%BE%9D%E8%B5%96%E6%9F%A5%E6%89%BE/" itemprop="commentCount"></span>
+    <a title="valine" href="/2020/11/08/springframework/%E4%BA%94-%E4%BE%9D%E8%B5%96%E6%9F%A5%E6%89%BE/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/11/08/springframework/%E4%BA%94-%E4%BE%9D%E8%B5%96%E6%9F%A5%E6%89%BE/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -604,7 +986,7 @@
 <li>直接执行底层 API：<code>AbstractBeanFactory#getBean</code>。比如项目中我们通常会继承<code>ApplicationContextAware</code>来编写一个可以查找 Bean 的工具类。
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2020/11/08/%E4%BA%94-%E4%BE%9D%E8%B5%96%E6%9F%A5%E6%89%BE/#more" rel="contents">
+              <a class="btn" href="/2020/11/08/springframework/%E4%BA%94-%E4%BE%9D%E8%B5%96%E6%9F%A5%E6%89%BE/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -635,7 +1017,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.niceczj.online/2020/11/02/%E5%9B%9B-Spring-Event/">
+    <link itemprop="mainEntityOfPage" href="http://www.niceczj.online/2020/11/02/springframework/%E5%9B%9B-Spring-Event/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/my.png">
@@ -649,7 +1031,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/11/02/%E5%9B%9B-Spring-Event/" class="post-title-link" itemprop="url">(四) Spring Event</a>
+            <a href="/2020/11/02/springframework/%E5%9B%9B-Spring-Event/" class="post-title-link" itemprop="url">(四) Spring Event</a>
         </h2>
 
         <div class="post-meta-container">
@@ -662,6 +1044,13 @@
 
       <time title="创建时间：2020-11-02 19:05:52" itemprop="dateCreated datePublished" datetime="2020-11-02T19:05:52+08:00">2020-11-02</time>
     </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2020-11-09 17:22:24" itemprop="dateModified" datetime="2020-11-09T17:22:24+08:00">2020-11-09</time>
+      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
@@ -689,8 +1078,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2020/11/02/%E5%9B%9B-Spring-Event/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/11/02/%E5%9B%9B-Spring-Event/" itemprop="commentCount"></span>
+    <a title="valine" href="/2020/11/02/springframework/%E5%9B%9B-Spring-Event/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/11/02/springframework/%E5%9B%9B-Spring-Event/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -723,7 +1112,7 @@
           <p>Spring 中大量使用到了事件驱动模式。<br><strong>在 Spring Boot 中</strong>，Spring Event 尤其重要。</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2020/11/02/%E5%9B%9B-Spring-Event/#more" rel="contents">
+              <a class="btn" href="/2020/11/02/springframework/%E5%9B%9B-Spring-Event/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -754,7 +1143,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.niceczj.online/2020/11/02/%E4%B8%89-ConfigurationClassPostProcessor/">
+    <link itemprop="mainEntityOfPage" href="http://www.niceczj.online/2020/11/02/springframework/%E4%B8%89-ConfigurationClassPostProcessor/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/my.png">
@@ -768,7 +1157,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/11/02/%E4%B8%89-ConfigurationClassPostProcessor/" class="post-title-link" itemprop="url">(三) ConfigurationClassPostProcessor</a>
+            <a href="/2020/11/02/springframework/%E4%B8%89-ConfigurationClassPostProcessor/" class="post-title-link" itemprop="url">(三) ConfigurationClassPostProcessor</a>
         </h2>
 
         <div class="post-meta-container">
@@ -781,6 +1170,13 @@
 
       <time title="创建时间：2020-11-02 14:25:45" itemprop="dateCreated datePublished" datetime="2020-11-02T14:25:45+08:00">2020-11-02</time>
     </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2020-11-09 11:28:04" itemprop="dateModified" datetime="2020-11-09T11:28:04+08:00">2020-11-09</time>
+      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
@@ -808,8 +1204,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2020/11/02/%E4%B8%89-ConfigurationClassPostProcessor/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/11/02/%E4%B8%89-ConfigurationClassPostProcessor/" itemprop="commentCount"></span>
+    <a title="valine" href="/2020/11/02/springframework/%E4%B8%89-ConfigurationClassPostProcessor/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/11/02/springframework/%E4%B8%89-ConfigurationClassPostProcessor/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -839,10 +1235,10 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>在前面<a href="/2020/11/01/%E4%BA%8C-PostProcesser/" title="(二) PostProcesser">(二) PostProcesser</a>章节中提到过一个重要的<code>BeanDefinitionRegistryPostProcessor</code>：<code>ConfigurationClassPostProcessor</code>。<br><code>ConfigurationClassPostProcessor</code>语义是对配置类的处理，实际上是扫描和注册非代码生成的 BeanDefinition，包括<code>@Configuration</code>、<code>@Import</code>、<code>@ImportSource</code>、<code>@Bean</code>、<code>@Component</code>。<br>理解<code>ConfigurationClassPostProcessor</code>关系到 Bean 注册和 Spring Boot 自动装配。</p>
+          <p>在前面<a href="/2020/11/01/springframework/%E4%BA%8C-PostProcesser/" title="(二) PostProcesser">(二) PostProcesser</a>章节中提到过一个重要的<code>BeanDefinitionRegistryPostProcessor</code>：<code>ConfigurationClassPostProcessor</code>。<br><code>ConfigurationClassPostProcessor</code>语义是对配置类的处理，实际上是扫描和注册非代码生成的 BeanDefinition，包括<code>@Configuration</code>、<code>@Import</code>、<code>@ImportSource</code>、<code>@Bean</code>、<code>@Component</code>。<br>理解<code>ConfigurationClassPostProcessor</code>关系到 Bean 注册和 Spring Boot 自动装配。</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2020/11/02/%E4%B8%89-ConfigurationClassPostProcessor/#more" rel="contents">
+              <a class="btn" href="/2020/11/02/springframework/%E4%B8%89-ConfigurationClassPostProcessor/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -873,7 +1269,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.niceczj.online/2020/11/01/%E4%BA%8C-PostProcesser/">
+    <link itemprop="mainEntityOfPage" href="http://www.niceczj.online/2020/11/01/springframework/%E4%BA%8C-PostProcesser/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/my.png">
@@ -887,7 +1283,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/11/01/%E4%BA%8C-PostProcesser/" class="post-title-link" itemprop="url">(二) PostProcesser</a>
+            <a href="/2020/11/01/springframework/%E4%BA%8C-PostProcesser/" class="post-title-link" itemprop="url">(二) PostProcesser</a>
         </h2>
 
         <div class="post-meta-container">
@@ -897,10 +1293,16 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2020-11-01 00:19:11 / 修改时间：00:41:20" itemprop="dateCreated datePublished" datetime="2020-11-01T00:19:11+08:00">2020-11-01</time>
+      <time title="创建时间：2020-11-01 00:19:11" itemprop="dateCreated datePublished" datetime="2020-11-01T00:19:11+08:00">2020-11-01</time>
     </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2020-11-09 11:31:53" itemprop="dateModified" datetime="2020-11-09T11:31:53+08:00">2020-11-09</time>
+      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
@@ -928,8 +1330,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2020/11/01/%E4%BA%8C-PostProcesser/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/11/01/%E4%BA%8C-PostProcesser/" itemprop="commentCount"></span>
+    <a title="valine" href="/2020/11/01/springframework/%E4%BA%8C-PostProcesser/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/11/01/springframework/%E4%BA%8C-PostProcesser/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -962,7 +1364,7 @@
           <h1 id="什么是-PostProcesser"><a href="#什么是-PostProcesser" class="headerlink" title="什么是 PostProcesser"></a>什么是 PostProcesser</h1><p>Spring 中提供了多种 PostProcessor（后置处理器）处理 Bean 或者 BeanFactory。<br><strong>PostProcessor 是 Spring 中一个非常重要的扩展点</strong>，不同的 PostProcessor 的不同方法会在指定的阶段被执行。<br>很多核心的功能都是由对应的 PostProcessor 扩展而来，比如处理注解注入的<code>AutowiredAnnotationBeanPostProcessor</code>。</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2020/11/01/%E4%BA%8C-PostProcesser/#more" rel="contents">
+              <a class="btn" href="/2020/11/01/springframework/%E4%BA%8C-PostProcesser/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -993,7 +1395,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.niceczj.online/2020/11/01/%E4%B8%80-BeanDefinition/">
+    <link itemprop="mainEntityOfPage" href="http://www.niceczj.online/2020/11/01/springframework/%E4%B8%80-BeanDefinition/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/my.png">
@@ -1007,7 +1409,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/11/01/%E4%B8%80-BeanDefinition/" class="post-title-link" itemprop="url">(一) BeanDefinition</a>
+            <a href="/2020/11/01/springframework/%E4%B8%80-BeanDefinition/" class="post-title-link" itemprop="url">(一) BeanDefinition</a>
         </h2>
 
         <div class="post-meta-container">
@@ -1017,10 +1419,16 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2020-11-01 00:18:55 / 修改时间：03:47:26" itemprop="dateCreated datePublished" datetime="2020-11-01T00:18:55+08:00">2020-11-01</time>
+      <time title="创建时间：2020-11-01 00:18:55" itemprop="dateCreated datePublished" datetime="2020-11-01T00:18:55+08:00">2020-11-01</time>
     </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2020-11-09 17:22:24" itemprop="dateModified" datetime="2020-11-09T17:22:24+08:00">2020-11-09</time>
+      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
@@ -1048,8 +1456,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2020/11/01/%E4%B8%80-BeanDefinition/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/11/01/%E4%B8%80-BeanDefinition/" itemprop="commentCount"></span>
+    <a title="valine" href="/2020/11/01/springframework/%E4%B8%80-BeanDefinition/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/11/01/springframework/%E4%B8%80-BeanDefinition/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -1082,7 +1490,7 @@
           <h1 id="什么是BeanDefinition"><a href="#什么是BeanDefinition" class="headerlink" title="什么是BeanDefinition"></a>什么是BeanDefinition</h1><p><code>BeanDefinition</code>是 bean 在 spring 中的元信息。<br>理解<code>BeanDefinition</code>，对后续列理解 Bean 生命周期非常重要。</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2020/11/01/%E4%B8%80-BeanDefinition/#more" rel="contents">
+              <a class="btn" href="/2020/11/01/springframework/%E4%B8%80-BeanDefinition/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -1105,137 +1513,11 @@
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.niceczj.online/2020/11/01/%E9%9B%B6-Spring-Framework%E7%B3%BB%E5%88%97%E7%BA%B2%E8%A6%81/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/my.png">
-      <meta itemprop="name" content="Jay Cai">
-      <meta itemprop="description" content="一个有体系的个人博客">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jay的狗窝">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/11/01/%E9%9B%B6-Spring-Framework%E7%B3%BB%E5%88%97%E7%BA%B2%E8%A6%81/" class="post-title-link" itemprop="url">(零) Spring Framework系列纲要</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-11-01 00:17:50" itemprop="dateCreated datePublished" datetime="2020-11-01T00:17:50+08:00">2020-11-01</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-11-08 22:45:25" itemprop="dateModified" datetime="2020-11-08T22:45:25+08:00">2020-11-08</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E4%B8%BB%E6%B5%81%E6%A1%86%E6%9E%B6/" itemprop="url" rel="index"><span itemprop="name">主流框架</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E4%B8%BB%E6%B5%81%E6%A1%86%E6%9E%B6/Spring/" itemprop="url" rel="index"><span itemprop="name">Spring</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E4%B8%BB%E6%B5%81%E6%A1%86%E6%9E%B6/Spring/Spring-Framework/" itemprop="url" rel="index"><span itemprop="name">Spring Framework</span></a>
-        </span>
-    </span>
 
   
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2020/11/01/%E9%9B%B6-Spring-Framework%E7%B3%BB%E5%88%97%E7%BA%B2%E8%A6%81/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/11/01/%E9%9B%B6-Spring-Framework%E7%B3%BB%E5%88%97%E7%BA%B2%E8%A6%81/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-      </div>
-      <div class="post-meta">
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>218</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>《Spring Framework系列》是笔者准备用最小的篇幅，结合源码总结 Spring Framework 中的<strong>最核心和最常用</strong>的模块。<br>目的是拥有可以快速排查问题以及个人项目集成 Spring 的能力。<br>目前计划分为以下几个章节：</p>
-<ol>
-<li><a href="/2020/11/01/%E4%B8%80-BeanDefinition/" title="(一) BeanDefinition">(一) BeanDefinition</a></li>
-<li><a href="/2020/11/01/%E4%BA%8C-PostProcesser/" title="(二) PostProcesser">(二) PostProcesser</a></li>
-<li><a href="/2020/11/02/%E4%B8%89-ConfigurationClassPostProcessor/" title="(三) ConfigurationClassPostProcessor">(三) ConfigurationClassPostProcessor</a></li>
-<li><a href="/2020/11/02/%E5%9B%9B-Spring-Event/" title="(四) Spring Event">(四) Spring Event</a></li>
-<li><a href="/2020/11/08/%E4%BA%94-%E4%BE%9D%E8%B5%96%E6%9F%A5%E6%89%BE/" title="(五) 依赖查找">(五) 依赖查找</a></li>
-<li><a href="/2020/11/08/%E5%85%AD-%E5%BE%AA%E7%8E%AF%E4%BE%9D%E8%B5%96/" title="(六) 循环依赖">(六) 循环依赖</a></li>
-<li><a href="/2020/11/08/%E4%B8%83-refresh/" title="(七) refresh">(七) refresh</a></li>
-<li>TODO</li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-
-  
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+  </nav>
 
 
 
@@ -1286,13 +1568,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">88k</span>
+    <span title="站点总字数">124k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">1:20</span>
+    <span title="站点阅读时长">1:52</span>
   </span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
